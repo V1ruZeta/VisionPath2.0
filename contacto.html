@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta al equipo de VisionPath. Proyecto de bastón inteligente de la Universidad de Tarapacá. Colaboraciones, consultas e información del proyecto.">
+    <meta property="og:title" content="Contacto | VisionPath">
+    <meta property="og:description" content="Conecta con el equipo detrás de VisionPath y conoce más sobre el proyecto.">
+    <title>Contacto | VisionPath</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<header id="header">
+    <nav class="navbar">
+        <div class="logo">Vision<span>Path</span></div>
+
+        <button class="hamburger" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#problema">Problema</a></li>
+            <li><a href="index.html#sobre">Proyecto</a></li>
+            <li><a href="index.html#funciona">Tecnología</a></li>
+            <li><a href="index.html#beneficios">Beneficios</a></li>
+            <li><a href="simulador.html">Simulador</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" style="min-height:60vh; padding-top:140px; padding-bottom:60px;">
+    <div class="hero-text">
+        <span class="tag">Conectando Tecnología e Inclusión</span>
+        <h1>Contacto</h1>
+        <h2>Hablemos sobre VisionPath y cómo podemos colaborar juntos.</h2>
+        <p class="hero-description">
+            Si deseas conocer más sobre el proyecto, colaborar en futuras versiones
+            o implementar esta solución en otros contextos, estaremos encantados de conversar.
+        </p>
+        <div class="hero-buttons">
+            <a href="mailto:visionpath@gmail.com" class="btn btn-primary">📧 Enviar correo</a>
+            <a href="#formulario" class="btn btn-secondary">Escribir mensaje</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     INFO + FORMULARIO
+============================================================ -->
+<section class="section" id="formulario">
+    <span class="section-label">Ponte en contacto</span>
+    <h2 class="section-title">Escríbenos un <span>mensaje</span></h2>
+    <div class="section-divider"></div>
+
+    <div class="contact-grid">
+
+        <!-- Columna izquierda: información -->
+        <div class="contact-info-block">
+
+            <div class="contact-info-card hidden delay-1">
+                <div class="info-icon">📧</div>
+                <div class="info-text">
+                    <strong>Correo electrónico</strong>
+                    <span><a href="mailto:visionpath@gmail.com" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">visionpath@ejemplo.cl</a></span>
+                </div>
+            </div>
+
+            <div class="contact-info-card hidden delay-2">
+                <div class="info-icon">🏫</div>
+                <div class="info-text">
+                    <strong>Universidad</strong>
+                    <span>Universidad de Tarapacá</span>
+                </div>
+            </div>
+
+            <div class="contact-info-card hidden delay-3">
+                <div class="info-icon">🎓</div>
+                <div class="info-text">
+                    <strong>Departamento</strong>
+                    <span>Ingeniería y Tecnología</span>
+                </div>
+            </div>
+
+            <div class="contact-info-card hidden delay-4">
+                <div class="info-icon">📍</div>
+                <div class="info-text">
+                    <strong>País</strong>
+                    <span>Chile</span>
+                </div>
+            </div>
+
+            <div class="contact-info-card hidden delay-1">
+                <div class="info-icon">📱</div>
+                <div class="info-text">
+                    <strong>Teléfono de contacto</strong>
+                    <span>+56 9 4080 0422</span>
+                </div>
+            </div>
+
+            <div class="contact-info-card hidden delay-2">
+                <div class="info-icon">🌐</div>
+                <div class="info-text">
+                    <strong>Sitio web</strong>
+                    <span>www.visionpath.cl</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Columna derecha: formulario -->
+        <div class="contact-form-wrapper hidden delay-2">
+            <h3>Envíanos un mensaje</h3>
+
+            <form class="contact-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="given-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" autocomplete="family-name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="motivo">Motivo del contacto</label>
+                    <select id="motivo" name="motivo" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="colaboracion">Colaboración en el proyecto</option>
+                        <option value="implementacion">Implementación en otro contexto</option>
+                        <option value="consulta">Consulta técnica</option>
+                        <option value="prensa">Prensa o difusión</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu consulta o propuesta..." required rows="5"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+                    Enviar mensaje →
+                </button>
+            </form>
+
+            <div class="form-success">
+                ✅ ¡Gracias por tu mensaje! Te responderemos pronto.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================
+     MISIÓN
+============================================================ -->
+<section class="section hidden">
+    <span class="section-label">Propósito</span>
+    <h2 class="section-title">Nuestra <span>misión</span></h2>
+    <div class="section-divider"></div>
+    <p class="section-text">VisionPath busca mejorar la autonomía, seguridad e independencia de las personas con discapacidad visual mediante tecnología accesible y de bajo costo.</p>
+    <p class="section-text">Nuestro objetivo es desarrollar soluciones innovadoras que puedan integrarse fácilmente en la vida cotidiana de los usuarios, sin requerir adaptaciones mayores a su entorno.</p>
+</section>
+
+<!-- ============================================================
+     EQUIPO
+============================================================ -->
+<section class="section hidden">
+    <span class="section-label">El equipo</span>
+    <h2 class="section-title">Integrantes del <span>proyecto</span></h2>
+    <div class="section-divider"></div>
+
+    <div class="cards">
+        <div class="member-card hidden delay-1">
+            <div class="member-avatar">💻</div>
+            <div class="member-role">Desarrollo Web</div>
+            <div class="member-name">Jonatan Fuenzalida</div>
+        </div>
+        <div class="member-card hidden delay-2">
+            <div class="member-avatar">🔧</div>
+            <div class="member-role">Desarrollo Hardware</div>
+            <div class="member-name">Mario y Enzo</div>
+        </div>
+        <div class="member-card hidden delay-3">
+            <div class="member-avatar">📚</div>
+            <div class="member-role">Investigación</div>
+            <div class="member-name">Barbara y Sofia San Martin</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     INFORMACIÓN DEL PROYECTO
+============================================================ -->
+<section class="section hidden">
+    <span class="section-label">Datos del proyecto</span>
+    <h2 class="section-title">Información <span>académica</span></h2>
+    <div class="section-divider"></div>
+
+    <div class="cards">
+        <div class="card hidden delay-1">
+            <span class="card-icon">🏫</span>
+            <h3>Universidad</h3>
+            <p>Universidad de Tarapacá — Iquique, Chile</p>
+        </div>
+        <div class="card hidden delay-2">
+            <span class="card-icon">🎓</span>
+            <h3>Carrera</h3>
+            <p>Ingeniería y Tecnología</p>
+        </div>
+        <div class="card hidden delay-3">
+            <span class="card-icon">📅</span>
+            <h3>Año</h3>
+            <p>Prototipo funcional 2026</p>
+        </div>
+        <div class="card hidden delay-4">
+            <span class="card-icon">🏆</span>
+            <h3>Categoría</h3>
+            <p>Tecnología Asistiva e Inclusión</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CTA FINAL
+============================================================ -->
+<section class="section hidden">
+    <div class="mission-banner">
+        <h2>¿Quieres ver el proyecto <span style="color:var(--cyan)">en acción</span>?</h2>
+        <p>Prueba nuestro simulador interactivo y experimenta el sistema de detección de obstáculos en tiempo real.</p>
+        <div class="hero-buttons" style="justify-content:center">
+            <a href="simulador.html" class="btn btn-primary">Ver Simulador</a>
+            <a href="index.html" class="btn btn-secondary">🏠 Volver al inicio</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <div class="logo">Vision<span>Path</span></div>
+            <p>Proyecto universitario desarrollado en la Universidad de Tarapacá. Tecnología inclusiva para mejorar la movilidad y autonomía de personas con discapacidad visual.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#sobre">El Proyecto</a></li>
+                <li><a href="index.html#beneficios">Beneficios</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="mailto:visionpath@gmail.com">Email</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 VisionPath — Todos los Derechos Reservados.</p>
+        <div class="footer-badge">🎓 Universidad de Tarapacá</div>
+    </div>
+</footer>
+
+<button id="scrollTop" aria-label="Volver al inicio">↑</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>

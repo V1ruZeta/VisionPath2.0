@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simulador interactivo del sensor ultrasónico de VisionPath. Visualiza cómo el bastón inteligente detecta obstáculos y activa vibraciones.">
+    <meta property="og:title" content="Simulador | VisionPath">
+    <meta property="og:description" content="Experimenta en tiempo real cómo funciona el sistema de detección de obstáculos de VisionPath.">
+    <title>Simulador | VisionPath</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<header id="header">
+    <nav class="navbar">
+        <div class="logo">Vision<span>Path</span></div>
+
+        <button class="hamburger" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#problema">Problema</a></li>
+            <li><a href="index.html#sobre">Proyecto</a></li>
+            <li><a href="index.html#funciona">Tecnología</a></li>
+            <li><a href="index.html#beneficios">Beneficios</a></li>
+            <li><a href="simulador.html">Simulador</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" style="min-height:60vh; padding-top:140px; padding-bottom:60px;">
+    <div class="hero-text">
+        <span class="tag">Simulación Interactiva</span>
+        <h1>Simulador</h1>
+        <h2>Observa cómo reacciona el bastón inteligente ante un obstáculo en tiempo real.</h2>
+        <p class="hero-description">
+            Mueve el deslizador para acercar o alejar un obstáculo y visualiza
+            el comportamiento exacto del sistema de vibración de VisionPath.
+        </p>
+        <div class="hero-buttons">
+            <a href="#simulador" class="btn btn-primary">Ir al simulador</a>
+            <a href="index.html" class="btn btn-secondary">← Volver al inicio</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SIMULADOR PRINCIPAL
+============================================================ -->
+<section class="section" id="simulador">
+    <span class="section-label">Simulación en tiempo real</span>
+    <h2 class="section-title">Sensor <span>Ultrasónico</span></h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle">
+        Arrastra el slider para simular la distancia entre el bastón y el obstáculo.
+    </p>
+
+    <div class="simulator-wrapper">
+
+        <!-- Escena visual -->
+        <div class="simulation-scene">
+            <div class="scene-grid"></div>
+            <div class="scene-floor"></div>
+
+            <!-- Bastón -->
+            <div class="stick-icon" aria-label="Bastón inteligente">🦯</div>
+
+            <!-- Ondas del sensor -->
+            <div class="sensor-area" aria-hidden="true">
+                <div class="wave"></div>
+                <div class="wave d1"></div>
+                <div class="wave d2"></div>
+            </div>
+
+            <!-- Obstáculo -->
+            <div class="obstacle" aria-label="Obstáculo detectado">🚧</div>
+
+            <!-- Línea de distancia -->
+            <div class="distance-line" style="position:absolute; bottom:30px; border-top: 1.5px dashed rgba(56,189,248,0.3);"></div>
+            <div class="distance-label-scene" style="position:absolute; bottom:10px; font-size:0.7rem; color:#38bdf8; font-weight:600;"></div>
+        </div>
+
+        <!-- Controles -->
+        <div class="sim-controls">
+            <div class="sim-distance-display">
+                <span class="value" id="distanceValue">100</span>
+                <span class="unit">cm</span>
+            </div>
+
+            <input
+                type="range"
+                id="distanceSlider"
+                min="5"
+                max="100"
+                value="100"
+                class="slider"
+                aria-label="Distancia al obstáculo en centímetros"
+                aria-valuemin="5"
+                aria-valuemax="100"
+                aria-valuenow="100">
+
+            <div class="slider-labels">
+                <span>5 cm — Peligro</span>
+                <span>Distancia al obstáculo</span>
+                <span>Zona segura — 100 cm</span>
+            </div>
+        </div>
+
+        <!-- Status -->
+        <div id="statusBox" class="status-box safe" role="status" aria-live="polite">
+            🟢 Zona Segura
+        </div>
+
+        <!-- Panel de vibración -->
+        <div class="vibration-panel">
+            <h3>📳 Intensidad de Vibración</h3>
+            <div class="vibration-bar">
+                <div id="vibrationLevel" class="vibration-level"></div>
+            </div>
+            <div class="vibration-dots" aria-hidden="true">
+                <div class="vdot"></div>
+                <div class="vdot"></div>
+                <div class="vdot"></div>
+                <div class="vdot"></div>
+                <div class="vdot"></div>
+                <div class="vdot"></div>
+                <div class="vdot"></div>
+                <div class="vdot"></div>
+                <div class="vdot"></div>
+                <div class="vdot"></div>
+            </div>
+            <p id="sensorMessage" class="sensor-message" aria-live="polite">El usuario puede desplazarse con normalidad.</p>
+        </div>
+
+        <!-- Botones de control -->
+        <div class="hero-buttons" style="justify-content:center; margin-top:28px;">
+            <button id="autoBtn" class="btn btn-primary">▶ Demo automática</button>
+            <button id="resetBtn" class="btn btn-secondary">↺ Reiniciar</button>
+        </div>
+
+    </div>
+
+    <!-- Leyenda -->
+    <div class="sim-legend" style="margin-top:40px;">
+        <div class="legend-item">
+            <div class="legend-dot safe"></div>
+            <div class="range">60 – 100 cm</div>
+            <div class="desc">Zona segura. Sin vibración, desplazamiento normal.</div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot warning"></div>
+            <div class="range">30 – 59 cm</div>
+            <div class="desc">Precaución. Vibración moderada. Reducir velocidad.</div>
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot danger"></div>
+            <div class="range">5 – 29 cm</div>
+            <div class="desc">Peligro. Vibración intensa. Detención inmediata.</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CÓMO FUNCIONA EL SIMULADOR
+============================================================ -->
+<section class="section hidden">
+    <span class="section-label">Detrás del simulador</span>
+    <h2 class="section-title">Objetivo de la <span>simulación</span></h2>
+    <div class="section-divider"></div>
+
+    <p class="section-text">
+        Esta simulación representa el comportamiento esperado del kit inteligente durante
+        el desplazamiento de una persona con discapacidad visual.
+    </p>
+    <p class="section-text">
+        A medida que el obstáculo se aproxima, aumenta la intensidad de la alerta
+        táctil, permitiendo una reacción progresiva y más segura.
+    </p>
+    <p class="section-text">
+        El sistema fue diseñado para ser intuitivo: sin curva de aprendizaje,
+        sin configuración y sin interferencia con los sentidos del usuario.
+    </p>
+</section>
+
+<!-- ============================================================
+     COMPARATIVA — con y sin VisionPath
+============================================================ -->
+<section class="section hidden">
+    <span class="section-label">Comparativa</span>
+    <h2 class="section-title">Con y sin <span>VisionPath</span></h2>
+    <div class="section-divider"></div>
+
+    <div class="problem-grid">
+        <div class="problem-card hidden delay-1">
+            <h3>❌ Sin VisionPath</h3>
+            <p>Detección solo al contacto físico. Sin anticipación de obstáculos elevados. Alto riesgo de colisión.</p>
+        </div>
+        <div class="solution-card hidden delay-2">
+            <h3>✦ Con VisionPath</h3>
+            <p>Detección hasta 100 cm de anticipación. Alerta táctil gradual. Reacción en tiempo para evitar el obstáculo.</p>
+        </div>
+        <div class="problem-card hidden delay-3">
+            <h3>❌ Bastón tradicional</h3>
+            <p>No detecta obstáculos suspendidos como ramas, señales, barandas o estructuras aéreas.</p>
+        </div>
+        <div class="solution-card hidden delay-4">
+            <h3>✦ Kit inteligente</h3>
+            <p>Sensor frontal de 180° detecta obstáculos tanto al nivel del suelo como a altura de torso y cabeza.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CTA
+============================================================ -->
+<section class="section hidden">
+    <div class="mission-banner">
+        <h2>¿Tienes preguntas sobre el <span style="color:var(--cyan)">proyecto</span>?</h2>
+        <p>Contacta al equipo de VisionPath para más información o para explorar posibles colaboraciones.</p>
+        <div class="hero-buttons" style="justify-content:center">
+            <a href="contacto.html" class="btn btn-primary">Contactar equipo</a>
+            <a href="index.html#sobre" class="btn btn-secondary">Ver el proyecto</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <div class="logo">Vision<span>Path</span></div>
+            <p>Proyecto universitario desarrollado en la Universidad de Tarapacá. Tecnología inclusiva para mejorar la movilidad y autonomía de personas con discapacidad visual.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#sobre">El Proyecto</a></li>
+                <li><a href="index.html#beneficios">Beneficios</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="simulador.html">Simulador</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="mailto:visionpath@ejemplo.cl">Email</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 VisionPath — Todos los Derechos Reservados.</p>
+        <div class="footer-badge">🎓 Universidad de Tarapacá</div>
+    </div>
+</footer>
+
+<button id="scrollTop" aria-label="Volver al inicio">↑</button>
+
+<script src="js/script.js"></script>
+<script src="js/simulador.js"></script>
+</body>
+</html>
